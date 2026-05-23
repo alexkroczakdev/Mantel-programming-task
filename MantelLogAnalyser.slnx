@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MantelLogAnalyser.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MantelLogAnalyser.Tests.csproj" />
+  </Folder>
+</Solution>
