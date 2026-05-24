@@ -135,6 +135,24 @@ public class LogAnalyserTests
     }
 
     [Fact]
+    public void GetMostVisitedUrls_Excludes1xxResponses()
+    {
+        // Arrange
+        var entries = new List<LogEntry>
+        {
+            new("10.0.0.1", "/continue", 100),
+            new("10.0.0.1", "/continue", 100),
+            new("10.0.0.2", "/ok", 200),
+        };
+
+        // Act
+        var result = _analyser.GetMostVisitedUrls(entries);
+
+        // Assert
+        Assert.Equal(["/ok"], result);
+    }
+
+    [Fact]
     public void GetMostVisitedUrls_EmptyList_ReturnsEmpty()
     {
         // Act

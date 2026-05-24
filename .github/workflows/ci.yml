@@ -16,7 +16,7 @@ jobs:
 
       - run: dotnet build --configuration Release
 
-      - run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory coverage
+      - run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --results-directory coverage -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Exclude="[*]System.Text.RegularExpressions.*"
 
       - uses: danielpalme/ReportGenerator-GitHub-Action@5
         with:
